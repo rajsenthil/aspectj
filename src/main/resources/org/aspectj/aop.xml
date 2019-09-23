@@ -7,9 +7,6 @@
     </weaver>
 
     <aspects>
-        <aspect name="com.spring.aspect.interfaces.activity.AnnotationTaskActivity"/>
-        <aspect name="com.spring.aspect.interfaces.activity.ReviewTaskActivity"/>
-        <aspect name="com.spring.aspect.interfaces.aspect.TaskAspects"/>
         <aspect name="com.spring.aspect.interfaces.task.Task1"/>
         <aspect name="com.spring.aspect.interfaces.task.Task2"/>
         <aspect name="com.spring.aspect.interfaces.task.Task3"/>
