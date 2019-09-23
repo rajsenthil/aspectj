@@ -1,0 +1,19 @@
+<!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+
+    <weaver options="-verbose -showWeaveInfo">
+        <!-- only weave classes in our application-specific packages -->
+        <include within="com.spring.aspect.interfaces..*"/>
+    </weaver>
+
+    <aspects>
+        <aspect name="com.spring.aspect.interfaces.activity.AnnotationTaskActivity"/>
+        <aspect name="com.spring.aspect.interfaces.activity.ReviewTaskActivity"/>
+        <aspect name="com.spring.aspect.interfaces.aspect.TaskAspects"/>
+        <aspect name="com.spring.aspect.interfaces.task.Task1"/>
+        <aspect name="com.spring.aspect.interfaces.task.Task2"/>
+        <aspect name="com.spring.aspect.interfaces.task.Task3"/>
+        <aspect name="com.spring.aspect.interfaces.aspect.TaskAspect"/>
+    </aspects>
+
+</aspectj>
