@@ -9,16 +9,14 @@ import org.slf4j.LoggerFactory;
 
 @Aspect
 public class TaskAspect {
+  static Logger logger = LoggerFactory.getLogger(TaskAspect.class.getName());
 
-    private static final Logger log = LoggerFactory.getLogger( TaskAspect.class.getName() );
-
-    @Around ( "@annotation(com.spring.aspect.interfaces.annotation.Task) && execution(* task(..)) "
-              + "&& args(proceedingJoinPoint) && target(task)" )
-    public Object groupTasks(
-        ProceedingJoinPoint proceedingJoinPoint, Task task ) throws Throwable {
-        log.info( "Generalizing the task aspects." );
-        log.info( "  " + proceedingJoinPoint );
-        log.info( "Task is {}", task.getClass().getName() );
-        return proceedingJoinPoint.proceed();
-    }
+  @Around("@within(task) && adviceexecution()")
+  public Object groupTasks(ProceedingJoinPoint proceedingJoinPoint, Task task) throws Throwable {
+    logger.info("Generalizing the task aspects");
+    logger.info("  {}", proceedingJoinPoint);
+    logger.info("  Task = {}", task.name());
+    logger.info("  Process = {}", task.processName());
+    return proceedingJoinPoint.proceed();
+  }
 }
