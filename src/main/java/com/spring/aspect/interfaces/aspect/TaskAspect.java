@@ -9,14 +9,14 @@ import org.slf4j.LoggerFactory;
 
 @Aspect
 public class TaskAspect {
-  private static final Logger logger = LoggerFactory.getLogger(TaskAspect.class.getName());
+  static Logger logger = LoggerFactory.getLogger(TaskAspect.class.getName());
 
   @Around("@within(task) && adviceexecution()")
   public Object groupTasks(ProceedingJoinPoint proceedingJoinPoint, Task task) throws Throwable {
     logger.info("Generalizing the task aspects");
-    logger.info("  " + proceedingJoinPoint);
-    logger.info("  Task is {}", task.name());
-    logger.info("  Process name is {}", task.processName());
+    logger.info("  {}", proceedingJoinPoint);
+    logger.info("  Task = {}", task.name());
+    logger.info("  Process = {}", task.processName());
     return proceedingJoinPoint.proceed();
   }
 }
